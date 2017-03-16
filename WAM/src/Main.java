@@ -1,4 +1,7 @@
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created by samuel_wolff on 3/15/17.
@@ -9,10 +12,23 @@ public class Main extends JPanel{
     private String key= " ";
     private String keyType="None";
     private boolean menu;
-    public Main(){
+    public Main() {
+        timer = new Timer(40, new ActionListener() {
+            public void actionPerformed(ActionEvent actionEvent) {
 
 
+                repaint();
+            }
+        });
+
+        timer.start();
+        }
+
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
     }
+
+
     public static void main(String[] args) {
         JFrame window = new JFrame("Game");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
