@@ -6,4 +6,7 @@ public class Starship extends Sprite {
         super(x,y,NORTH);
         this.setPic("Starship.png", NORTH);
     }
+    public void update(){
+
+    }
 }
