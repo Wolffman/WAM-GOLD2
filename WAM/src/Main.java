@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 /**
  * Created by samuel_wolff on 3/15/17.
@@ -15,6 +14,44 @@ public class Main extends JPanel{
     public Main() {
         timer = new Timer(40, new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
+
+
+
+
+                addKeyListener(new KeyListener() {
+                    public void keyTyped(KeyEvent keyEvent) {
+
+                    }
+
+                    public void keyPressed(KeyEvent keyEvent) {
+
+                    }
+
+                    public void keyReleased(KeyEvent keyEvent) {
+
+                    }
+                });
+                addMouseListener(new MouseListener() {
+                    public void mouseClicked(MouseEvent mouseEvent) {
+
+                    }
+
+                    public void mousePressed(MouseEvent mouseEvent) {
+
+                    }
+
+                    public void mouseReleased(MouseEvent mouseEvent) {
+
+                    }
+
+                    public void mouseEntered(MouseEvent mouseEvent) {
+
+                    }
+
+                    public void mouseExited(MouseEvent mouseEvent) {
+
+                    }
+                });
 
 
                 repaint();
