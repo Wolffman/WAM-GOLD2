@@ -58,11 +58,15 @@ public class Main extends JPanel{
                 });
                 addMouseListener(new MouseListener() {
                     public void mouseClicked(MouseEvent mouseEvent) {
-
+                       // System.out.println("X:"+mouseEvent.getX()+" Y:" +mouseEvent.getY());
                         if (menuLevel==1){
                             if(mouseEvent.getX()>455&&mouseEvent.getX()<850&&
                                     mouseEvent.getY()>195&&mouseEvent.getY()<260){
                                 menuLevel=2;
+                            }
+                            if(mouseEvent.getX()>455&&mouseEvent.getX()<580&&
+                                    mouseEvent.getY()>302&&mouseEvent.getY()<365){
+                                menu=false;
                             }
                         }
                         if(menuLevel==2){
@@ -70,7 +74,7 @@ public class Main extends JPanel{
                                     mouseEvent.getY()>13&&mouseEvent.getY()<52){
                                 menuLevel=1;
                             }
-                            //System.out.println("X:"+mouseEvent.getX()+" Y:" +mouseEvent.getY());
+
                         }
 
                     }
