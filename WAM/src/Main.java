@@ -15,12 +15,15 @@ public class Main extends JPanel{
     private Color black = new Color(0,0,0);
     private Color white = new Color(255,255,255);
     private Color red = new Color(255, 30, 26);
-    Sprite ship = new Starship(500,300);
+    private Sprite ship = new Starship(500,300);
+    private int menuLevel=1;
     public Main() {
         timer = new Timer(40, new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 if(!menu){
+                    menuLevel=0;
                     ship.update();
+
                 }
 
 
@@ -90,15 +93,22 @@ public class Main extends JPanel{
             ship.draw(g2);
         }
         if(menu){
-            g2.setColor(black);
-            g2.fillRect(0,0,1000,600);
-            g2.setColor(Color.white);
-            g2.setFont( new Font("Comic Sans MS", Font.BOLD ,48));
-            g2.drawString("Dodge",450,150);
-            g2.fillRect(445,220,200,100);
-            g2.setColor(black);
-            g2.drawString("Play",450,225);
-
+            if(menuLevel==1) {
+                g2.setColor(black);
+                g2.fillRect(0, 0, 1000, 600);
+                g2.setColor(Color.white);
+                g2.setFont(new Font("Comic Sans MS", Font.BOLD, 68));
+                g2.drawString("Dodge", 450, 150);
+                g2.drawString("Play", 450, 250);
+                g2.drawString("Select Ship", 4450, 350);
+            }
+            if(menuLevel==2){
+                g2.setColor(black);
+                g2.fillRect(0, 0, 1000, 600);
+                g2.setColor(Color.white);
+                g2.setFont(new Font("Comic Sans MS", Font.BOLD, 48));
+                g2.drawString("Menu",50,50);
+            }
 
         }
 
