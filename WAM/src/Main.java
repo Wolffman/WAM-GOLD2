@@ -24,7 +24,6 @@ public class Main extends JPanel{
                 if(!menu){
                     menuLevel=0;
                     ship.update();
-
                 }
 
 
@@ -61,7 +60,7 @@ public class Main extends JPanel{
                     public void mouseClicked(MouseEvent mouseEvent) {
 
                         if (menuLevel==1){
-                            if(mouseEvent.getX()>455&&mouseEvent.getX()<600&&
+                            if(mouseEvent.getX()>455&&mouseEvent.getX()<850&&
                                     mouseEvent.getY()>195&&mouseEvent.getY()<260){
                                 menuLevel=2;
                             }
@@ -71,7 +70,7 @@ public class Main extends JPanel{
                                     mouseEvent.getY()>13&&mouseEvent.getY()<52){
                                 menuLevel=1;
                             }
-                            System.out.println("X:"+mouseEvent.getX()+" Y:" +mouseEvent.getY());
+                            //System.out.println("X:"+mouseEvent.getX()+" Y:" +mouseEvent.getY());
                         }
 
                     }
@@ -114,8 +113,8 @@ public class Main extends JPanel{
                 g2.setColor(Color.white);
                 g2.setFont(new Font("Comic Sans MS", Font.BOLD, 68));
                 g2.drawString("Dodge", 450, 150);
-                g2.drawString("Play", 450, 250);
-                g2.drawString("Select Ship", 4450, 350);
+                g2.drawString("Play", 450, 350);
+                g2.drawString("Select Ship", 450, 250);
             }
             if(menuLevel==2){
                 g2.setColor(black);
@@ -125,8 +124,10 @@ public class Main extends JPanel{
                 g2.drawString("Menu",50,50);
                 for (int i = 0; i < 5; i++) {
                     g2.drawLine(140+(i*boxLength),160,140+(i*boxLength),160+boxLength);
-
-
+                }
+                for (int i = 0; i < 4; i++) {
+                    g2.drawLine(140,160,140+((i+1)*boxLength),160);
+                    g2.drawLine(140,160+boxLength,140+((i+1)*boxLength),160+boxLength);
                 }
             }
 
