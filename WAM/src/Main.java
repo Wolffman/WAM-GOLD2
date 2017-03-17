@@ -17,6 +17,7 @@ public class Main extends JPanel{
     private Color red = new Color(255, 30, 26);
     private Sprite ship = new Starship(500,300);
     private int menuLevel=1;
+    private int boxLength=200;
     public Main() {
         timer = new Timer(40, new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
@@ -58,6 +59,20 @@ public class Main extends JPanel{
                 });
                 addMouseListener(new MouseListener() {
                     public void mouseClicked(MouseEvent mouseEvent) {
+
+                        if (menuLevel==1){
+                            if(mouseEvent.getX()>455&&mouseEvent.getX()<600&&
+                                    mouseEvent.getY()>195&&mouseEvent.getY()<260){
+                                menuLevel=2;
+                            }
+                        }
+                        if(menuLevel==2){
+                            if(mouseEvent.getX()>55&&mouseEvent.getX()<170&&
+                                    mouseEvent.getY()>13&&mouseEvent.getY()<52){
+                                menuLevel=1;
+                            }
+                            System.out.println("X:"+mouseEvent.getX()+" Y:" +mouseEvent.getY());
+                        }
 
                     }
 
@@ -108,6 +123,11 @@ public class Main extends JPanel{
                 g2.setColor(Color.white);
                 g2.setFont(new Font("Comic Sans MS", Font.BOLD, 48));
                 g2.drawString("Menu",50,50);
+                for (int i = 0; i < 5; i++) {
+                    g2.drawLine(140+(i*boxLength),160,140+(i*boxLength),160+boxLength);
+
+
+                }
             }
 
         }
