@@ -131,10 +131,13 @@ public class Main extends JPanel{
                 g2.drawString("Menu",50,50);
                 for (int i = 0; i < 5; i++) {
                     g2.drawLine(140+(i*boxLength),160,140+(i*boxLength),160+boxLength);
+                    g2.drawLine(140+(i*boxLength),160+boxLength,140+(i*boxLength),160+(boxLength*2));
                 }
                 for (int i = 0; i < 4; i++) {
                     g2.drawLine(140,160,140+((i+1)*boxLength),160);
                     g2.drawLine(140,160+boxLength,140+((i+1)*boxLength),160+boxLength);
+                    g2.drawLine(140,160+(boxLength*2),140+((i+1)*boxLength),160+(boxLength*2));
+
                 }
             }
 
