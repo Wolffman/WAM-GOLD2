@@ -40,7 +40,7 @@ public class Main extends JPanel{
 
                 if (!menu) {
                     if (code == 'w') {
-                        System.out.println("it works");
+                        System.out.println("it works!");
                         ship.setLoc(new Point(ship.getLoc().x, ship.getLoc().y - shipSpeed));
                     }
                     if (code == 's') {
