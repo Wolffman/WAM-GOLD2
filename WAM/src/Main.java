@@ -34,10 +34,10 @@ public class Main extends JPanel{
         timer.start();
 
         addKeyListener(new KeyListener() {
-            public void keyTyped(KeyEvent keyEvent) {
+            public void keyTyped(KeyEvent keyEvent) {System.out.println("ye");
 
                 int code = keyEvent.getKeyChar();
-                System.out.println("ye");
+
                 if (!menu) {
                     if (code == 'w') {
                         System.out.println("it works");
