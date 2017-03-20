@@ -21,80 +21,10 @@ public class Main extends JPanel{
     public Main() {
         timer = new Timer(40, new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(!menu){
-                    menuLevel=0;
+                if (!menu) {
+                    menuLevel = 0;
                     ship.update();
                 }
-
-
-
-
-                addKeyListener(new KeyListener() {
-                    public void keyTyped(KeyEvent keyEvent) {
-                        int code= keyEvent.getKeyCode();
-                        if(!menu) {
-                            if (code == 'w') {
-                                ship.setLoc(new Point(ship.getLoc().x, ship.getLoc().y - shipSpeed));
-                            }
-                            if (code == 's') {
-                                ship.setLoc(new Point(ship.getLoc().x, ship.getLoc().y + shipSpeed));
-                            }
-                            if (code == 'a') {
-                                ship.setLoc(new Point(ship.getLoc().x - shipSpeed, ship.getLoc().y));
-                            }
-                            if (code == 'd') {
-                                ship.setLoc(new Point(ship.getLoc().x + shipSpeed, ship.getLoc().y));
-                            }
-                        }
-                    }
-
-                    public void keyPressed(KeyEvent keyEvent) {
-
-                    }
-
-                    public void keyReleased(KeyEvent keyEvent) {
-
-                    }
-                });
-                addMouseListener(new MouseListener() {
-                    public void mouseClicked(MouseEvent mouseEvent) {
-                       // System.out.println("X:"+mouseEvent.getX()+" Y:" +mouseEvent.getY());
-                        if (menuLevel==1){
-                            if(mouseEvent.getX()>455&&mouseEvent.getX()<850&&
-                                    mouseEvent.getY()>195&&mouseEvent.getY()<260){
-                                menuLevel=2;
-                            }
-                            if(mouseEvent.getX()>455&&mouseEvent.getX()<580&&
-                                    mouseEvent.getY()>302&&mouseEvent.getY()<365){
-                                menu=false;
-                            }
-                        }
-                        if(menuLevel==2){
-                            if(mouseEvent.getX()>55&&mouseEvent.getX()<170&&
-                                    mouseEvent.getY()>13&&mouseEvent.getY()<52){
-                                menuLevel=1;
-                            }
-
-                        }
-
-                    }
-
-                    public void mousePressed(MouseEvent mouseEvent) {
-
-                    }
-
-                    public void mouseReleased(MouseEvent mouseEvent) {
-
-                    }
-
-                    public void mouseEntered(MouseEvent mouseEvent) {
-
-                    }
-
-                    public void mouseExited(MouseEvent mouseEvent) {
-
-                    }
-                });
 
 
                 repaint();
@@ -102,12 +32,85 @@ public class Main extends JPanel{
         });
 
         timer.start();
-        }
+
+        addKeyListener(new KeyListener() {
+            public void keyTyped(KeyEvent keyEvent) {
+
+                int code = keyEvent.getKeyChar();
+                System.out.println("ye");
+                if (!menu) {
+                    if (code == 'w') {
+                        System.out.println("it works");
+                        ship.setLoc(new Point(ship.getLoc().x, ship.getLoc().y - shipSpeed));
+                    }
+                    if (code == 's') {
+                        ship.setLoc(new Point(ship.getLoc().x, ship.getLoc().y + shipSpeed));
+                    }
+                    if (code == 'a') {
+                        ship.setLoc(new Point(ship.getLoc().x - shipSpeed, ship.getLoc().y));
+                    }
+                    if (code == 'd') {
+                        ship.setLoc(new Point(ship.getLoc().x + shipSpeed, ship.getLoc().y));
+                    }
+                }
+            }
+
+            public void keyPressed(KeyEvent keyEvent) {
+
+            }
+
+            public void keyReleased(KeyEvent keyEvent) {
+
+            }
+        });
+        addMouseListener(new MouseListener() {
+            public void mouseClicked(MouseEvent mouseEvent) {
+                // System.out.println("X:"+mouseEvent.getX()+" Y:" +mouseEvent.getY());
+                if (menuLevel == 1) {
+                    if (mouseEvent.getX() > 455 && mouseEvent.getX() < 850 &&
+                            mouseEvent.getY() > 195 && mouseEvent.getY() < 260) {
+                        menuLevel = 2;
+                    }
+                    if (mouseEvent.getX() > 455 && mouseEvent.getX() < 580 &&
+                            mouseEvent.getY() > 302 && mouseEvent.getY() < 365) {
+                        menu = false;
+                    }
+                }
+                if (menuLevel == 2) {
+                    if (mouseEvent.getX() > 55 && mouseEvent.getX() < 170 &&
+                            mouseEvent.getY() > 13 && mouseEvent.getY() < 52) {
+                        menuLevel = 1;
+                    }
+
+                }
+
+
+            }
+
+            public void mousePressed(MouseEvent mouseEvent) {
+
+            }
+
+            public void mouseReleased(MouseEvent mouseEvent) {
+
+            }
+
+            public void mouseEntered(MouseEvent mouseEvent) {
+
+            }
+
+            public void mouseExited(MouseEvent mouseEvent) {
+
+            }
+        });
+    }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
         if(!menu){
+            g2.setColor(black);
+            g2.fillRect(0,0,1000,600);
             ship.draw(g2);
         }
         if(menu){
