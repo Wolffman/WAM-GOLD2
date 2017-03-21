@@ -17,12 +17,16 @@ public class Main extends JPanel{
     private Color white = new Color(255,255,255);
     private Color red = new Color(255, 30, 26);
     private int z=0;
-    private Sprite ship = new Starship(500,300,z);
+
     private ArrayList<Sprite> ships = new ArrayList<Sprite>();
     private ArrayList<Sprite> fire = new ArrayList<Sprite>();
     private int menuLevel=1;
     private int boxLength=200;
+
+    private Sprite ship = new Starship(500,300,z);
+
     public Main() {
+
         timer = new Timer(40, new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 if (!menu) {
@@ -69,22 +73,101 @@ public class Main extends JPanel{
         });
         addMouseListener(new MouseListener() {
             public void mouseClicked(MouseEvent mouseEvent) {
-                // System.out.println("X:"+mouseEvent.getX()+" Y:" +mouseEvent.getY());
+                 //System.out.println("X:"+mouseEvent.getX()+" Y:" +mouseEvent.getY());
                 if (menuLevel == 1) {
+
+                    //selection of ships menu
                     if (mouseEvent.getX() > 455 && mouseEvent.getX() < 850 &&
                             mouseEvent.getY() > 195 && mouseEvent.getY() < 260) {
                         menuLevel = 2;
                     }
+
+                    //play button
                     if (mouseEvent.getX() > 455 && mouseEvent.getX() < 580 &&
                             mouseEvent.getY() > 302 && mouseEvent.getY() < 365) {
                         menu = false;
                     }
                 }
+
+
                 if (menuLevel == 2) {
+
+                    //back to main menu button
                     if (mouseEvent.getX() > 55 && mouseEvent.getX() < 170 &&
                             mouseEvent.getY() > 13 && mouseEvent.getY() < 52) {
                         menuLevel = 1;
                     }
+
+                    //play now button
+                    if (mouseEvent.getX() > 650 && mouseEvent.getX() < 870 &&
+                            mouseEvent.getY() > 12 && mouseEvent.getY() < 52) {
+                        menu = false;
+                    }
+
+                    //selection of ship 1
+                    if (mouseEvent.getX() > 140 && mouseEvent.getX() < 340 &&
+                            mouseEvent.getY() > 160 && mouseEvent.getY() < 360) {
+                        z = 1;
+                        ship = new Starship(500,300,z);
+
+                    }
+
+                    //selection of ship 2
+                    if (mouseEvent.getX() > 340 && mouseEvent.getX() < 540 &&
+                            mouseEvent.getY() > 160 && mouseEvent.getY() < 360) {
+                        z = 2;
+                        ship = new Starship(500,300,z);
+
+                    }
+
+                    //selection of ship 3
+                    if (mouseEvent.getX() > 540 && mouseEvent.getX() < 740 &&
+                            mouseEvent.getY() > 160 && mouseEvent.getY() < 360) {
+                        z = 3;
+                        ship = new Starship(500,300,z);
+
+                    }
+
+                    //selection of ship 4
+                    if (mouseEvent.getX() > 740 && mouseEvent.getX() < 940 &&
+                            mouseEvent.getY() > 160 && mouseEvent.getY() < 360) {
+                        z = 4;
+                        ship = new Starship(500,300,z);
+
+                    }
+
+                    //selection of ship 5
+                    if (mouseEvent.getX() > 140 && mouseEvent.getX() < 340 &&
+                            mouseEvent.getY() > 360 && mouseEvent.getY() < 560) {
+                        z = 5;
+                        ship = new Starship(500,300,z);
+
+                    }
+
+                    //selection of ship 6
+                    if (mouseEvent.getX() > 340 && mouseEvent.getX() < 540 &&
+                            mouseEvent.getY() > 360 && mouseEvent.getY() < 560) {
+                        z = 6;
+                        ship = new Starship(500,300,z);
+
+                    }
+
+                    //selection of ship 7
+                    if (mouseEvent.getX() > 540 && mouseEvent.getX() < 740 &&
+                            mouseEvent.getY() > 360 && mouseEvent.getY() < 560) {
+                        z = 7;
+                        ship = new Starship(500,300,z);
+
+                    }
+
+                    //selection of ship 8
+                    if (mouseEvent.getX() > 740 && mouseEvent.getX() < 940 &&
+                            mouseEvent.getY() > 360 && mouseEvent.getY() < 560) {
+                        z = 8;
+                        ship = new Starship(500,300,z);
+
+                    }
+
 
                 }
 
@@ -129,18 +212,32 @@ public class Main extends JPanel{
                 g2.drawString("Play", 450, 350);
                 g2.drawString("Select Ship", 450, 250);
             }
+
+            //ship selection screen
             if(menuLevel==2){
                 g2.setColor(black);
                 g2.fillRect(0, 0, 1000, 600);
                 g2.setColor(Color.white);
                 g2.setFont(new Font("Comic Sans MS", Font.BOLD, 48));
                 g2.drawString("Menu",50,50);
+                g2.drawString("Play Now",650,50);
+                g2.drawString("Selected Ship: "+z,200,50);
+
+                int n = 0;
+                for (int r = 1; r < 3; r++) {
+                    for (int c = 1; c < 5; c++) {
+                        n = n + 1;
+                        g2.drawString(""+n,100+c*boxLength,r*205);
+
+
+
+
+                    }
+                }
 
                 for (int i = 0; i < 5; i++) {
                     g2.drawLine(140+(i*boxLength),160,140+(i*boxLength),160+boxLength);
                     g2.drawLine(140+(i*boxLength),160+boxLength,140+(i*boxLength),160+(boxLength*2));
-
-
 
                 }
 
@@ -161,7 +258,6 @@ public class Main extends JPanel{
                         s.draw(g2);
                     }
 
-
                     fire = new ArrayList();
 
                     fire.add(new Fire(155,275,1));
@@ -173,18 +269,12 @@ public class Main extends JPanel{
                     fire.add(new Fire(550,485,7));
                     fire.add(new Fire(785,465,8));
 
-                for (Sprite f: fire) {
-                    f.draw(g2);
+                    for (Sprite f: fire) {
+                        f.draw(g2);
+                    }
                 }
-
-                }
-
             }
-
-
-
         }
-
 
     }
 
