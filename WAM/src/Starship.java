@@ -8,8 +8,11 @@ public class Starship extends Sprite {
         int zs= z;
 
 
+
         //takes in user imputed ship and sets it to the correct one
-        if(zs==1){
+
+        //sets ship one as default if not picked otherwise
+        if(zs==0||zs==1){
             this.setPic("Spaceship1.png", NORTH);
         }
         if(zs==2){

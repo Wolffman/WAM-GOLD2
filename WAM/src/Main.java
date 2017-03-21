@@ -16,9 +16,10 @@ public class Main extends JPanel{
     private Color black = new Color(0,0,0);
     private Color white = new Color(255,255,255);
     private Color red = new Color(255, 30, 26);
-    private int z;
+    private int z=0;
     private Sprite ship = new Starship(500,300,z);
     private ArrayList<Sprite> ships = new ArrayList<Sprite>();
+    private ArrayList<Sprite> fire = new ArrayList<Sprite>();
     private int menuLevel=1;
     private int boxLength=200;
     public Main() {
@@ -160,8 +161,27 @@ public class Main extends JPanel{
                         s.draw(g2);
                     }
 
+
+                    fire = new ArrayList();
+
+                    fire.add(new Fire(155,275,1));
+                    fire.add(new Fire(345,285,2));
+                    fire.add(new Fire(610,312,3));
+                    fire.add(new Fire(810,330,4));
+                    fire.add(new Fire(210,550,5));
+                    fire.add(new Fire(378,518,6));
+                    fire.add(new Fire(550,485,7));
+                    fire.add(new Fire(785,465,8));
+
+                for (Sprite f: fire) {
+                    f.draw(g2);
                 }
+
+                }
+
             }
+
+
 
         }
 
