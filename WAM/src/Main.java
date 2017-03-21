@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 /**
  * Created by samuel_wolff on 3/15/17.
@@ -15,7 +16,9 @@ public class Main extends JPanel{
     private Color black = new Color(0,0,0);
     private Color white = new Color(255,255,255);
     private Color red = new Color(255, 30, 26);
-    private Sprite ship = new Starship(500,300);
+    private int z;
+    private Sprite ship = new Starship(500,300,z);
+    private ArrayList<Sprite> ships = new ArrayList<Sprite>();
     private int menuLevel=1;
     private int boxLength=200;
     public Main() {
@@ -105,6 +108,8 @@ public class Main extends JPanel{
         });
     }
 
+
+
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
@@ -129,14 +134,31 @@ public class Main extends JPanel{
                 g2.setColor(Color.white);
                 g2.setFont(new Font("Comic Sans MS", Font.BOLD, 48));
                 g2.drawString("Menu",50,50);
+
                 for (int i = 0; i < 5; i++) {
                     g2.drawLine(140+(i*boxLength),160,140+(i*boxLength),160+boxLength);
                     g2.drawLine(140+(i*boxLength),160+boxLength,140+(i*boxLength),160+(boxLength*2));
+
+
+
                 }
+
                 for (int i = 0; i < 4; i++) {
                     g2.drawLine(140,160,140+((i+1)*boxLength),160);
                     g2.drawLine(140,160+boxLength,140+((i+1)*boxLength),160+boxLength);
                     g2.drawLine(140,160+(boxLength*2),140+((i+1)*boxLength),160+(boxLength*2));
+
+                    //adds ships to the menu boxes
+                    //need to make it more centered and
+                    //we have to implement the clicking that changes it
+                    //the ship png is a varible called z
+                    ships = new ArrayList();
+                    ships.add(new Starship(145+boxLength*i,180,i+1));
+                    ships.add(new Starship(145+boxLength*i,380,(i+5)));
+
+                    for (Sprite s: ships) {
+                        s.draw(g2);
+                    }
 
                 }
             }
