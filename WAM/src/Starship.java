@@ -1,11 +1,15 @@
+import java.awt.*;
+
 /**
  * Created by samuel_wolff on 3/16/17.
  */
 public class Starship extends Sprite {
+    private int zs;
+    private Fire fire;
     public Starship(int x, int y, int z){
         super(x,y,NORTH);
 
-        int zs= z;
+         zs= z;
 
 
 
@@ -38,7 +42,7 @@ public class Starship extends Sprite {
         }
 
 
-
+        fire = new Fire(this);
 
 
 
@@ -47,7 +51,13 @@ public class Starship extends Sprite {
 
     }
 
+    public int getZs() {
+        return zs;
+    }
 
-
-
+    @Override
+    public void draw(Graphics2D g2) {
+        super.draw(g2);
+        fire.draw(g2);
+    }
 }

@@ -251,6 +251,8 @@ public class Main extends JPanel{
                     //we have to implement the clicking that changes it
                     //the ship png is a varible called z
                     ships = new ArrayList();
+
+
                     ships.add(new Starship(145+boxLength*i,180,i+1));
                     ships.add(new Starship(145+boxLength*i,380,(i+5)));
 
@@ -258,23 +260,6 @@ public class Main extends JPanel{
                         s.draw(g2);
                     }
 
-                    fire = new ArrayList();
-
-
-                    //ship starts at 140,160
-                    fire.add(new Fire(155,275,1));
-                    //ship starts at
-                    fire.add(new Fire(345,285,2));
-                    fire.add(new Fire(610,312,3));
-                    fire.add(new Fire(810,330,4));
-                    fire.add(new Fire(210,550,5));
-                    fire.add(new Fire(378,518,6));
-                    fire.add(new Fire(550,485,7));
-                    fire.add(new Fire(785,465,8));
-
-                    for (Sprite f: fire) {
-                        f.draw(g2);
-                    }
                 }
             }
         }
