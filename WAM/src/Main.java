@@ -90,7 +90,7 @@ public class Main extends JPanel{
                 }
 
 
-                if (menuLevel == 2) {
+                else if (menuLevel == 2) {
 
                     //back to main menu button
                     if (mouseEvent.getX() > 55 && mouseEvent.getX() < 170 &&
