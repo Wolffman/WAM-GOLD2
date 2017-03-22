@@ -12,16 +12,16 @@ public class Main extends JPanel{
     private String key= " ";
     private String keyType="None";
     private boolean menu=true;
-    private int shipSpeed=5;
+    private int shipSpeed=10;
     private Color black = new Color(0,0,0);
     private Color white = new Color(255,255,255);
     private Color red = new Color(255, 30, 26);
     private int z=0;
-
     private ArrayList<Sprite> ships = new ArrayList<Sprite>();
     private ArrayList<Sprite> fire = new ArrayList<Sprite>();
     private int menuLevel=1;
     private int boxLength=200;
+    private boolean w,a,s,d;
 
     private Sprite ship = new Starship(500,300,z);
 
@@ -33,6 +33,22 @@ public class Main extends JPanel{
                     menuLevel = 0;
                     ship.update();
                 }
+                if(w){
+                    ship.setLoc(new Point(ship.getLoc().x, ship.getLoc().y - shipSpeed));
+                    ship.setDir(Sprite.NORTH);
+                }
+                if(s){
+                    ship.setLoc(new Point(ship.getLoc().x, ship.getLoc().y + shipSpeed));
+                    ship.setDir(Sprite.SOUTH);
+                }
+                if(a){
+                    ship.setLoc(new Point(ship.getLoc().x - shipSpeed, ship.getLoc().y));
+                    ship.setDir(Sprite.WEST);
+                }
+                if(d){
+                    ship.setLoc(new Point(ship.getLoc().x + shipSpeed, ship.getLoc().y));
+                    ship.setDir(Sprite.EAST);
+                }
 
 
                 repaint();
@@ -42,22 +58,23 @@ public class Main extends JPanel{
         timer.start();
 
         addKeyListener(new KeyListener() {
-            public void keyTyped(KeyEvent keyEvent) {System.out.println("ye");
-
+            public void keyTyped(KeyEvent keyEvent) {
                 int code = keyEvent.getKeyChar();
-
                 if (!menu) {
                     if (code == 'w') {
-                        System.out.println("it works!");
+                        w=true;
                         ship.setLoc(new Point(ship.getLoc().x, ship.getLoc().y - shipSpeed));
                     }
                     if (code == 's') {
+                        s=true;
                         ship.setLoc(new Point(ship.getLoc().x, ship.getLoc().y + shipSpeed));
                     }
                     if (code == 'a') {
+                        a=true;
                         ship.setLoc(new Point(ship.getLoc().x - shipSpeed, ship.getLoc().y));
                     }
                     if (code == 'd') {
+                        d=true;
                         ship.setLoc(new Point(ship.getLoc().x + shipSpeed, ship.getLoc().y));
                     }
                 }
@@ -68,6 +85,21 @@ public class Main extends JPanel{
             }
 
             public void keyReleased(KeyEvent keyEvent) {
+                int code = keyEvent.getKeyChar();
+                if (!menu) {
+                    if (code == 'w') {
+                        w=false;
+                    }
+                    if (code == 's') {
+                        s=false;
+                    }
+                    if (code == 'a') {
+                        a=false;
+                    }
+                    if (code == 'd') {
+                        d=false;
+                    }
+                }
 
             }
         });
@@ -275,7 +307,7 @@ public class Main extends JPanel{
         Main panel = new Main();
         panel.setSize(FRAMEWIDTH, FRAMEHEIGHT);
 
-        //panel.setFocusable(true);
+        panel.setFocusable(true);
         panel.grabFocus();
 
 
