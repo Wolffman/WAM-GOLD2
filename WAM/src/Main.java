@@ -73,7 +73,7 @@ public class Main extends JPanel{
         });
         addMouseListener(new MouseListener() {
             public void mouseClicked(MouseEvent mouseEvent) {
-                 //System.out.println("X:"+mouseEvent.getX()+" Y:" +mouseEvent.getY());
+                 System.out.println("X:"+mouseEvent.getX()+" Y:" +mouseEvent.getY());
                 if (menuLevel == 1) {
 
                     //selection of ships menu
@@ -260,7 +260,10 @@ public class Main extends JPanel{
 
                     fire = new ArrayList();
 
+
+                    //ship starts at 140,160
                     fire.add(new Fire(155,275,1));
+                    //ship starts at
                     fire.add(new Fire(345,285,2));
                     fire.add(new Fire(610,312,3));
                     fire.add(new Fire(810,330,4));
