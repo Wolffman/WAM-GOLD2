@@ -1,3 +1,5 @@
+import com.sun.org.apache.xpath.internal.functions.FuncFalse;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -23,7 +25,7 @@ public class Main extends JPanel{
     private int boxLength=200;
     private boolean w,a,s,d;
 
-    private Sprite ship = new Starship(500,300,z);
+    private Sprite ship = new Starship(500,300,z, false);
 
     public Main() {
 
@@ -141,7 +143,7 @@ public class Main extends JPanel{
                     if (mouseEvent.getX() > 140 && mouseEvent.getX() < 340 &&
                             mouseEvent.getY() > 160 && mouseEvent.getY() < 360) {
                         z = 1;
-                        ship = new Starship(500,300,z);
+                        ship = new Starship(500,300,z,false);
 
                     }
 
@@ -149,7 +151,7 @@ public class Main extends JPanel{
                     if (mouseEvent.getX() > 340 && mouseEvent.getX() < 540 &&
                             mouseEvent.getY() > 160 && mouseEvent.getY() < 360) {
                         z = 2;
-                        ship = new Starship(500,300,z);
+                        ship = new Starship(500,300,z,false);
 
                     }
 
@@ -157,7 +159,7 @@ public class Main extends JPanel{
                     if (mouseEvent.getX() > 540 && mouseEvent.getX() < 740 &&
                             mouseEvent.getY() > 160 && mouseEvent.getY() < 360) {
                         z = 3;
-                        ship = new Starship(500,300,z);
+                        ship = new Starship(500,300,z,false);
 
                     }
 
@@ -165,7 +167,7 @@ public class Main extends JPanel{
                     if (mouseEvent.getX() > 740 && mouseEvent.getX() < 940 &&
                             mouseEvent.getY() > 160 && mouseEvent.getY() < 360) {
                         z = 4;
-                        ship = new Starship(500,300,z);
+                        ship = new Starship(500,300,z,false);
 
                     }
 
@@ -173,7 +175,7 @@ public class Main extends JPanel{
                     if (mouseEvent.getX() > 140 && mouseEvent.getX() < 340 &&
                             mouseEvent.getY() > 360 && mouseEvent.getY() < 560) {
                         z = 5;
-                        ship = new Starship(500,300,z);
+                        ship = new Starship(500,300,z,false);
 
                     }
 
@@ -181,7 +183,7 @@ public class Main extends JPanel{
                     if (mouseEvent.getX() > 340 && mouseEvent.getX() < 540 &&
                             mouseEvent.getY() > 360 && mouseEvent.getY() < 560) {
                         z = 6;
-                        ship = new Starship(500,300,z);
+                        ship = new Starship(500,300,z,false);
 
                     }
 
@@ -189,7 +191,7 @@ public class Main extends JPanel{
                     if (mouseEvent.getX() > 540 && mouseEvent.getX() < 740 &&
                             mouseEvent.getY() > 360 && mouseEvent.getY() < 560) {
                         z = 7;
-                        ship = new Starship(500,300,z);
+                        ship = new Starship(500,300,z,false);
 
                     }
 
@@ -197,7 +199,7 @@ public class Main extends JPanel{
                     if (mouseEvent.getX() > 740 && mouseEvent.getX() < 940 &&
                             mouseEvent.getY() > 360 && mouseEvent.getY() < 560) {
                         z = 8;
-                        ship = new Starship(500,300,z);
+                        ship = new Starship(500,300,z,false);
 
                     }
 
@@ -285,8 +287,8 @@ public class Main extends JPanel{
                     ships = new ArrayList();
 
 
-                    ships.add(new Starship(185+boxLength*i,225,i+1));
-                    ships.add(new Starship(185+boxLength*i,425,(i+5)));
+                    ships.add(new Starship(185+boxLength*i,225,i+1, true));
+                    ships.add(new Starship(185+boxLength*i,425,(i+5),true));
 
                     for (Sprite s: ships) {
                         s.draw(g2);

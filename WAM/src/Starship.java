@@ -5,10 +5,15 @@ import java.awt.*;
  */
 public class Starship extends Sprite {
     private int zs;
-    public Starship(int x, int y, int z){
+    private boolean fo;
+
+    public Starship(int x, int y, int z, boolean f){
         super(x,y,NORTH);
 
-         zs= z;
+        zs= z;
+
+        fo=f;
+
 
 
 
@@ -16,28 +21,60 @@ public class Starship extends Sprite {
 
         //sets ship one as default if not picked otherwise
         if(zs==0||zs==1){
-            this.setPic("Spaceship1.png", NORTH);
+            if (fo==true){
+                this.setPic("SF1.png", NORTH);
+            }else {
+                this.setPic("Spaceship1.png", NORTH);
+            }
         }
         if(zs==2){
-            this.setPic("Spaceship2.png", NORTH);
+            if (fo==true){
+                this.setPic("SF2.png", NORTH);
+            }else {
+                this.setPic("Spaceship2.png", NORTH);
+            }
         }
         if(zs==3){
-            this.setPic("Spaceship3.png", NORTH);
+            if (fo==true){
+                this.setPic("SF3.png", NORTH);
+            }else {
+                this.setPic("Spaceship3.png", NORTH);
+            }
         }
         if(zs==4){
-            this.setPic("Spaceship4.png", NORTH);
+            if (fo==true){
+                this.setPic("SF4.png", NORTH);
+            } else {
+                this.setPic("Spaceship4.png", NORTH);
+            }
         }
         if(zs==5){
-            this.setPic("Spaceship5.png", NORTH);
+            if (fo==true){
+                this.setPic("SF5.png", NORTH);
+            } else {
+                this.setPic("Spaceship5.png", NORTH);
+            }
         }
         if(zs==6){
-            this.setPic("Spaceship6.png", NORTH);
+            if (fo==true){
+                this.setPic("SF6.png", NORTH);
+            }else{
+                this.setPic("Spaceship6.png", NORTH);
+            }
         }
         if(zs==7){
-            this.setPic("Spaceship7.png", NORTH);
+            if (fo==true){
+                this.setPic("SF7.png", NORTH);
+            }else {
+                this.setPic("Spaceship7.png", NORTH);
+            }
         }
         if(zs==8){
-            this.setPic("Spaceship8.png", NORTH);
+            if (fo==true){
+                this.setPic("SF8.png", NORTH);
+            }else {
+                this.setPic("Spaceship8.png", NORTH);
+            }
         }
 
 
