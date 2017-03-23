@@ -53,6 +53,25 @@ public class Main extends JPanel{
                 }
 
 
+                if(w&&d){
+                    ship.setLoc(new Point(ship.getLoc().x, ship.getLoc().y- shipSpeed));
+                    ship.setDir(Sprite.NE);
+                }
+                if(s&&d){
+                    ship.setLoc(new Point(ship.getLoc().x, ship.getLoc().y + shipSpeed));
+                    ship.setDir(Sprite.SE);
+                }
+                if(a&&s){
+                    ship.setLoc(new Point(ship.getLoc().x - shipSpeed, ship.getLoc().y));
+                    ship.setDir(Sprite.SW);
+                }
+                if(w&&a){
+                    ship.setLoc(new Point(ship.getLoc().x -shipSpeed, ship.getLoc().y-shipSpeed));
+                    ship.setDir(Sprite.NW);
+                }
+
+
+
                 ship.update();
                 repaint();
             }
