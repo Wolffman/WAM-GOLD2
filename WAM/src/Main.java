@@ -18,7 +18,7 @@ public class Main extends JPanel{
     private Color red = new Color(255, 30, 26);
     private int z=0;
     private ArrayList<Sprite> ships = new ArrayList<Sprite>();
-    private ArrayList<Sprite> fire = new ArrayList<Sprite>();
+
     private int menuLevel=1;
     private int boxLength=200;
     private boolean w,a,s,d;
@@ -51,6 +51,7 @@ public class Main extends JPanel{
                 }
 
 
+                ship.update();
                 repaint();
             }
         });
@@ -105,7 +106,7 @@ public class Main extends JPanel{
         });
         addMouseListener(new MouseListener() {
             public void mouseClicked(MouseEvent mouseEvent) {
-                 System.out.println("X:"+mouseEvent.getX()+" Y:" +mouseEvent.getY());
+                //System.out.println("X:"+mouseEvent.getX()+" Y:" +mouseEvent.getY());
                 if (menuLevel == 1) {
 
                     //selection of ships menu
@@ -255,14 +256,13 @@ public class Main extends JPanel{
                 g2.drawString("Play Now",650,50);
                 g2.drawString("Selected Ship: "+z,200,50);
 
+
+
                 int n = 0;
                 for (int r = 1; r < 3; r++) {
                     for (int c = 1; c < 5; c++) {
                         n = n + 1;
                         g2.drawString(""+n,100+c*boxLength,r*205);
-
-
-
 
                     }
                 }
@@ -285,8 +285,8 @@ public class Main extends JPanel{
                     ships = new ArrayList();
 
 
-                    ships.add(new Starship(145+boxLength*i,180,i+1));
-                    ships.add(new Starship(145+boxLength*i,380,(i+5)));
+                    ships.add(new Starship(185+boxLength*i,225,i+1));
+                    ships.add(new Starship(185+boxLength*i,425,(i+5)));
 
                     for (Sprite s: ships) {
                         s.draw(g2);

@@ -5,7 +5,6 @@ import java.awt.*;
  */
 public class Starship extends Sprite {
     private int zs;
-    private Fire fire;
     public Starship(int x, int y, int z){
         super(x,y,NORTH);
 
@@ -42,12 +41,12 @@ public class Starship extends Sprite {
         }
 
 
-        fire = new Fire(this);
 
 
 
     }
     public void update(){
+
 
     }
 
@@ -58,6 +57,12 @@ public class Starship extends Sprite {
     @Override
     public void draw(Graphics2D g2) {
         super.draw(g2);
-        fire.draw(g2);
+
+    }
+
+    @Override
+    public void setDir(int newDir) {
+        super.setDir(newDir);
+
     }
 }
