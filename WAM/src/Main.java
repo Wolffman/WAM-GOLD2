@@ -9,7 +9,8 @@ import java.util.ArrayList;
  * Created by samuel_wolff on 3/15/17.
  */
 public class Main extends JPanel{
-    public static final int FRAMEWIDTH = 1000, FRAMEHEIGHT = 600;
+    //can be RAMEWIDTH = 1000, FRAMEHEIGHT = 600;
+    public static final int FRAMEWIDTH = 1200, FRAMEHEIGHT = 800;
     private Timer timer;
     private String key= " ";
     private String keyType="None";
@@ -53,6 +54,7 @@ public class Main extends JPanel{
                 }
 
 
+                //diagonals
                 if(w&&d){
                     ship.setLoc(new Point(ship.getLoc().x, ship.getLoc().y ));
                     ship.setDir(Sprite.NE);
@@ -253,13 +255,15 @@ public class Main extends JPanel{
         Graphics2D g2 = (Graphics2D)g;
         if(!menu){
             g2.setColor(black);
-            g2.fillRect(0,0,1000,600);
+
+            //can be g2.fillRect(0,0,1000,600);
+            g2.fillRect(0,0,1200,800);
             ship.draw(g2);
         }
         if(menu){
             if(menuLevel==1) {
                 g2.setColor(black);
-                g2.fillRect(0, 0, 1000, 600);
+                g2.fillRect(0, 0, 1200, 800);
                 g2.setColor(Color.white);
                 g2.setFont(new Font("Comic Sans MS", Font.BOLD, 68));
                 g2.drawString("Dodge", 450, 150);
@@ -270,7 +274,7 @@ public class Main extends JPanel{
             //ship selection screen
             if(menuLevel==2){
                 g2.setColor(black);
-                g2.fillRect(0, 0, 1000, 600);
+                g2.fillRect(0, 0, 1200, 800);
                 g2.setColor(Color.white);
                 g2.setFont(new Font("Comic Sans MS", Font.BOLD, 48));
                 g2.drawString("Menu",50,50);
