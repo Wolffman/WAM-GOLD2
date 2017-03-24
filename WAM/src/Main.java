@@ -21,6 +21,7 @@ public class Main extends JPanel{
     private Color red = new Color(255, 30, 26);
     private int z=0;
     private ArrayList<Sprite> ships = new ArrayList<Sprite>();
+//    private boolean boost;
 
     private int menuLevel=1;
     private int boxLength=200;
@@ -73,6 +74,15 @@ public class Main extends JPanel{
                 }
 
 
+                if(w&&a&&d){
+                    ship.setLoc(new Point(ship.getLoc().x, ship.getLoc().y));
+                    ship.setDir(Sprite.NORTH);
+                }
+
+                if(s&&a&&d){
+                    ship.setLoc(new Point(ship.getLoc().x, ship.getLoc().y));
+                    ship.setDir(Sprite.SOUTH);
+                }
 
                 ship.update();
                 repaint();
